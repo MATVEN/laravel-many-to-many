@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 
             TaskSeeder::class,
             UserSeeder::class,
+            UserInfoSeeder::class,
             EmployeeSeeder::class
             
                   
