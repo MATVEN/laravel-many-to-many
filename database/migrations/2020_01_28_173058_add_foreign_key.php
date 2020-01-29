@@ -29,10 +29,10 @@ class AddForeignKey extends Migration
 
         Schema::table('employees', function (Blueprint $table) {
 
-            $table -> bigInteger('user_id') -> unsigned() -> index();
-            $table -> foreign('user_id','employee_user_id' )
-                   -> references('id')
-                   -> on('users');
+             $table -> bigInteger('user_id') -> unsigned() -> index();
+             $table -> foreign('user_id','employee_user_id' )
+                    -> references('id')
+                    -> on('users');
 
         });
     }
@@ -47,12 +47,15 @@ class AddForeignKey extends Migration
         Schema::table('employee_task', function (Blueprint $table) {
         $table -> dropForeign('employee_task_employee_id');
         $table -> dropForeign('employee_task_task_id');
-
+    
         $table -> dropColumn('employee_id');
         $table -> dropColumn('task_id');
 
-        $table -> dropForeign('employee_user_id');
-        $table -> dropColumn('user_id');
     });
+        Schema::table('employees', function (Blueprint $table){
+
+            $table -> dropForeign('employee_user_id');
+            $table -> dropColumn('user_id');
+        });        
     }
 }
