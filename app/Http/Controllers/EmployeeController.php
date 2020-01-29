@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Employee;
 use App\Task;
 
-class PostController extends Controller
+class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.

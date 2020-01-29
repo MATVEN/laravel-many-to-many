@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/employee', 'PostController@index') -> name('employee-index');
-Route::get('/employee/create', 'PostController@create') -> name('employee-create');
-Route::post('/employee/store', 'PostController@store') -> name('employee-store');
+Route::get('/employee', 'EmployeeController@index') -> name('employee-index');
+Route::get('/employee/create', 'EmployeeController@create') -> name('employee-create');
+Route::post('/employee/store', 'EmployeeController@store') -> name('employee-store');
 
 Route::post('/employee/{idemp}/remove/task/{idtsk}', 'ExtraController@removeTaskToEmployee') -> name('employee-remove-task');
 
-Route::get('/employee/{id}/edit', 'PostController@edit') -> name('employee.edit');
-Route::post('/employee/{id}/update', 'PostController@update') -> name('employee.update');
-Route::get('/employee/{id}/delete', 'PostController@destroy') -> name('employee.delete');
+Route::get('/employee/{id}/edit', 'EmployeeController@edit') -> name('employee.edit');
+Route::post('/employee/{id}/update', 'EmployeeController@update') -> name('employee.update');
+Route::get('/employee/{id}/delete', 'EmployeeController@destroy') -> name('employee.delete');
 
+Auth::routes();
+Route::get('/home', 'HomeController@idex') -> name('home');

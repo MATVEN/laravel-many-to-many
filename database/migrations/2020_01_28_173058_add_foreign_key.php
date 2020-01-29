@@ -26,6 +26,15 @@ class AddForeignKey extends Migration
                    -> on('tasks');
             
         });
+
+        Schema::table('employees', function (Blueprint $table) {
+
+            $table -> bigInteger('user_id') -> unsigned() -> index();
+            $table -> foreign('user_id','employee_user_id' )
+                   -> references('id')
+                   -> on('users');
+
+        });
     }
 
     /**
@@ -41,6 +50,9 @@ class AddForeignKey extends Migration
 
         $table -> dropColumn('employee_id');
         $table -> dropColumn('task_id');
+
+        $table -> dropForeign('employee_user_id');
+        $table -> dropColumn('user_id');
     });
     }
 }
