@@ -9,7 +9,25 @@
 </head>
 <body>
     
-<header>  <a href="{{route('employee.create')}}">ADD NEW EMPLOYEE</a> </header>
+<header>  
+    Hi 
+    @auth
+    <b>{{Auth::user() -> name}}</b> 
+    @else
+    GUEST
+    @endauth
+    <br>
+    @auth
+    <form action="{{route('logout')}}" method="post">
+        @csrf
+        @method('POST')
+        <input type="submit" value="SIGN OUT">
+    </form>
+    @else
+    <a href="{{route('login')}}">SIGN IN</a>
+    @endauth
+    <a href="{{route('employee.create')}}">ADD NEW EMPLOYEE</a> 
+</header>
 
     @yield('content')
     

@@ -19,12 +19,16 @@
         {{$task -> title}}: {{$task -> description}}
     </li>
     <br>
-    <a href="{{route('employee.edit', $employee -> id)}}">EDIT</a>
-    <a href="{{route('employee.delete', $employee -> id)}}">DELETE</a>
+
+    @auth
+
+        <a href="{{route('employee.edit', $employee -> id)}}">EDIT</a>
+        <a href="{{route('employee.delete', $employee -> id)}}">DELETE</a>
+
+    @endauth
+
         @endforeach
     </ul>
     @endforeach
-
-
 
 @endsection
