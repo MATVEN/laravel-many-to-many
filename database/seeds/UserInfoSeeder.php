@@ -19,8 +19,8 @@ class UserInfoSeeder extends Seeder
                 -> make() 
                 -> each(function ($userInfo)
                 {
-                    $user -> inRandomOrder() -> first();
-                    $userInfo -> user() -> associte($userInfo);
+                    $user  = User::inRandomOrder() -> first();
+                    $userInfo -> user() -> associate($user);
                     $userInfo -> save();
                 });
     }

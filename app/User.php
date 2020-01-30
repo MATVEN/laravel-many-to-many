@@ -40,5 +40,11 @@ class User extends Authenticatable
     public function employees()
     {
         return $this -> hasMany(Employee::class);
+
+    }
+
+    public function user_info()
+    {
+        return $this -> hasOne(UserInfo::class);
     }
 }
